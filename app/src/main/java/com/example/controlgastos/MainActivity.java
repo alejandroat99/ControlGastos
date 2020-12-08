@@ -2,11 +2,14 @@ package com.example.controlgastos;
 
 import android.os.Bundle;
 
+import com.example.db.database.DataBase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.room.Database;
+import androidx.room.Room;
 
 import android.view.View;
 
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        DataBase db = Room.databaseBuilder(getApplicationContext(), DataBase.class, "ControlGastos").build();
     }
 
     @Override
