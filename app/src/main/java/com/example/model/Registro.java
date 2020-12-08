@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Registro {
     @PrimaryKey
     @NonNull
-    private int id;
+    private int registroId;
 
     @ColumnInfo(name = "value")
     private int value;
@@ -28,19 +28,66 @@ public class Registro {
     private String descripcion;
     
     @ColumnInfo(name = "fecha")
-    private Date fecha;
-    
+    private String fecha;
+
+    public int getRegistroId() {
+        return registroId;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public boolean isGasto() {
+        return gasto;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setRegistroId(int registroId) {
+        this.registroId = registroId;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public void setGasto(boolean gasto) {
+        this.gasto = gasto;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Registro registro = (Registro) o;
-        return id == registro.id;
+        return registroId == registro.registroId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(registroId);
     }
 }

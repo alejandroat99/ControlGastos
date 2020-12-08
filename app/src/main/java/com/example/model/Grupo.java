@@ -11,22 +11,38 @@ import java.util.Objects;
 public class Grupo {
     @PrimaryKey
     @NonNull
-    private int id;
+    private int grupoId;
     
     @ColumnInfo(name = "label")
     private String label;
+
+    public int getGrupoId() {
+        return grupoId;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setGrupoId(int grupoId) {
+        this.grupoId = grupoId;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Grupo grupo = (Grupo) o;
-        return id == grupo.id &&
+        return grupoId == grupo.grupoId &&
                 label.equals(grupo.label);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, label);
+        return Objects.hash(grupoId, label);
     }
 }
