@@ -11,8 +11,8 @@ import java.util.Objects;
         foreignKeys = {
                 @ForeignKey(
                         entity = Registro.class,
-                        parentColumns = {"registroid"},
-                        childColumns = {"registroid"},
+                        parentColumns = {"registroId"},
+                        childColumns = {"registroId"},
                         onDelete = ForeignKey.CASCADE
                 ),
                 @ForeignKey(
