@@ -1,0 +1,75 @@
+package com.example.db.actions;
+
+import android.content.Context;
+import android.os.AsyncTask;
+
+import androidx.lifecycle.LiveData;
+import androidx.room.Room;
+
+import com.example.db.database.DataBase;
+import com.example.model.RegistroGrupoCrossRef;
+
+public class RegistroGrupoCrossRefActions {
+    private String DB_NAME = "ControlGastos";
+    private DataBase db;
+
+    public RegistroGrupoCrossRefActions(Context context){
+        db = Room.databaseBuilder(context, DataBase.class, DB_NAME).build();
+    }
+
+    public void insertTask(int registroId, int grupoId){
+        RegistroGrupoCrossRef rel = new RegistroGrupoCrossRef();
+        rel.setRegistroId(registroId);
+        rel.setGrupoId(grupoId);
+
+        insert(rel);
+    }
+
+    public void insert(RegistroGrupoCrossRef rel){
+        new insertAsyncTask(db, rel).execute();
+    }
+
+    private class insertAsyncTask extends AsyncTask<Void, Void, Void>{
+        private DataBase db;
+        private RegistroGrupoCrossRef r;
+
+        insertAsyncTask(DataBase dao, RegistroGrupoCrossRef rel){
+            db = dao;
+            r = rel;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids){
+            db.registroGrupoCrossRefDao().insert(r);
+            return null;
+        }
+    }
+
+    public LiveData<RegistroGrupoCrossRef> getRelacion(int registroId, int grupoId){
+        return db.registroGrupoCrossRefDao().getRelacion(registroId, grupoId);
+    }
+
+    public void delete(int registroId, int grupoId){
+        LiveData<RegistroGrupoCrossRef> rel = getRelacion(registroId, grupoId);
+        if(rel != null){
+            new deleteAsyncTask(db, rel.getValue()).execute();
+        }
+    }
+
+    private class deleteAsyncTask extends AsyncTask<Void, Void, Void>{
+        private DataBase db;
+        private RegistroGrupoCrossRef r;
+
+        deleteAsyncTask(DataBase dao, RegistroGrupoCrossRef rel){
+            db = dao;
+            r = rel;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids){
+            db.registroGrupoCrossRefDao().delete(r);
+            return null;
+        }
+    }
+
+}
