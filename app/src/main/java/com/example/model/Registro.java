@@ -16,7 +16,7 @@ public class Registro {
     private int registroId;
 
     @ColumnInfo(name = "value")
-    private int value;
+    private double value;
     
     @ColumnInfo(name = "gasto")
     private boolean gasto; // True -> es un gasto, False -> es un ingreso
@@ -38,7 +38,7 @@ public class Registro {
         return titulo;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
@@ -58,7 +58,7 @@ public class Registro {
         this.registroId = registroId;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
