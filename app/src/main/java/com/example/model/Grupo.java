@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Entity(tableName = "grupo")
 public class Grupo {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     private int grupoId;
     

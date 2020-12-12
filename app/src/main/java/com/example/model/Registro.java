@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @Entity(tableName = "registro")
 public class Registro {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     private int registroId;
 
