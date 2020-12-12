@@ -11,8 +11,8 @@ import java.util.Objects;
         foreignKeys = {
                 @ForeignKey(
                         entity = Registro.class,
-                        parentColumns = {"registroid"},
-                        childColumns = {"registroid"},
+                        parentColumns = {"registroId"},
+                        childColumns = {"registroId"},
                         onDelete = ForeignKey.CASCADE
                 ),
                 @ForeignKey(
@@ -23,10 +23,10 @@ import java.util.Objects;
                 )
         })
 public class RegistroGrupoCrossRef{
-    @ColumnInfo(name = "registro_id", index = true)
+    @ColumnInfo(index = true)
     public int registroId;
 
-    @ColumnInfo(name = "grupo_id", index = true)
+    @ColumnInfo(index = true)
     public int grupoId;
 
     public int getRegistroId() {
