@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login">Login</string>
+    <string name="texto_principal">Home</string>
+    <string name="texto_estadística">Métricas</string>
+    <string name="texto_metas">Metas</string>
+    <string name="texto_perfil">Perfil</string>
 </resources>

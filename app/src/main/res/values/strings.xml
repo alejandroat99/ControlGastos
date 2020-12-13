@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Spends Controlled</string>
     <string name="login">Login</string>
+    <string name="texto_principal">Home</string>
+    <string name="texto_estadística">Metrics</string>
+    <string name="texto_metas">Goals</string>
+    <string name="texto_perfil">Profile</string>
 </resources>
