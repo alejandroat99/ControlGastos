@@ -5,4 +5,6 @@
     <string name="texto_estadística">Métricas</string>
     <string name="texto_metas">Metas</string>
     <string name="texto_perfil">Perfil</string>
+    <string name="texto_new_grupo">New Group</string>
+    <string name="texto_save">Save</string>
 </resources>
