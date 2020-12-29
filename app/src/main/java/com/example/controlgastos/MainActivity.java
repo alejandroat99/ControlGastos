@@ -2,6 +2,7 @@ package com.example.controlgastos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,5 +24,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    public void test_button(View v){
+        Intent intent = new Intent(this, GruposActivity.class);
+        startActivity(intent);
     }
 }
