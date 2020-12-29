@@ -45,4 +45,12 @@ public class Grupo {
     public int hashCode() {
         return Objects.hash(grupoId, label);
     }
+
+    @Override
+    public String toString() {
+        return "Grupo{" +
+                "grupoId=" + grupoId +
+                ", label='" + label + '\'' +
+                '}';
+    }
 }

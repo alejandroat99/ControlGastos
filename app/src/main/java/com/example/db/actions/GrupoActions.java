@@ -72,6 +72,10 @@ public class GrupoActions {
         }
     }
 
+    public void delete(final Grupo grupo){
+        new deleteAsyncTask(db, grupo).execute();
+    }
+
     public LiveData<Grupo> getGrupo(int id){
         return db.grupoDao().getGrupo(id);
     }

@@ -15,6 +15,8 @@ import com.example.model.Grupo;
 
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 // Esta clase es un adaptador personalizado para poder usar los grupos en las
 // ListView.
 // La ListView mostrara, en cada fila, el nombre del grupo y un boton
@@ -57,9 +59,16 @@ public class GrupoAdapter extends BaseAdapter implements ListAdapter {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Grupo grupo = list.get(position);
                 GrupoActions ga = new GrupoActions(context);
-                ga.delete(grupo.getGrupoId());
+                System.out.println("Se ha pulsado el objeto:" + position);
+                System.out.println("Grupo ID: " + getItemId(position));
+                System.out.println("Grupo: " + getItem(position));
+                ga.delete(getItem(position));
+//                try {
+//                    sleep(3000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
                 list.remove(position);
                 notifyDataSetChanged();
             }

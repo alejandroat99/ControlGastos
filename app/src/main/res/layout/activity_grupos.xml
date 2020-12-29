@@ -55,17 +55,18 @@
                     android:id="@+id/boton_save"
                     android:layout_width="111dp"
                     android:layout_height="49dp"
-                    android:background="@drawable/boton_background"
-                    android:backgroundTint="@color/back_gris"
+                    android:backgroundTint="#52C34A"
                     android:fallbackLineSpacing="false"
                     android:onClick="save_grupo"
                     android:text="@string/texto_save"
+                    android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.404"
                     app:layout_constraintStart_toEndOf="@+id/text_grupo"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.216" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -225,6 +226,7 @@
                 android:layout_width="359dp"
                 android:layout_height="505dp"
                 android:background="@drawable/rect_blanco"
+
                 app:layout_constraintBottom_toTopOf="@+id/barra_busqueda"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.488"

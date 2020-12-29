@@ -41,18 +41,20 @@ public class GruposActivity extends AppCompatActivity {
 
     public void save_grupo(View v) {
         TextView text_grupo = (TextView) findViewById(R.id.text_grupo);
-        String new_grupo = (String) text_grupo.getText();
-        GrupoActions ga = new GrupoActions(this);
-        ga.insertTask(new_grupo);
+        String new_grupo = String.valueOf(text_grupo.getText());
+        if(!new_grupo.isEmpty()) {
+            GrupoActions ga = new GrupoActions(this);
+            ga.insertTask(new_grupo);
 
-        try {
-            ArrayList<Grupo> grupos = new ArrayList<>(ga.getAllGrupos());
-            GrupoAdapter adapter = new GrupoAdapter(grupos, this);
-            list.setAdapter(adapter);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            try {
+                ArrayList<Grupo> grupos = new ArrayList<>(ga.getAllGrupos());
+                GrupoAdapter adapter = new GrupoAdapter(grupos, this);
+                list.setAdapter(adapter);
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
