@@ -75,6 +75,7 @@
                 android:layout_marginEnd="43dp"
                 android:layout_marginBottom="24dp"
                 android:background="@color/primary1"
+                android:onClick="goto_stadistics"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/boton_nOperacion"
                 app:layout_constraintHorizontal_bias="1.0"

@@ -30,4 +30,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GruposActivity.class);
         startActivity(intent);
     }
+
+    public void goto_stadistics(View v){
+        Intent intent = new Intent(this, EstadisticasActivity.class);
+        startActivity(intent);
+    }
 }
