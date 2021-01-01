@@ -9,6 +9,8 @@ import androidx.room.Query;
 
 import com.example.model.RegistroGrupoCrossRef;
 
+import java.util.List;
+
 @Dao
 public interface RegistroGrupoCrossRefDao {
 
@@ -20,5 +22,8 @@ public interface RegistroGrupoCrossRefDao {
 
     @Query("SELECT * FROM RegistroGrupoCrossRef WHERE registroId=:registroId AND grupoId=:grupoId")
     LiveData<RegistroGrupoCrossRef> getRelacion(int registroId, int grupoId);
+
+    @Query("SELECT * FROM RegistroGrupoCrossRef WHERE grupoId=:grupoId")
+    List<RegistroGrupoCrossRef> getRelacion(int grupoId);
 
 }

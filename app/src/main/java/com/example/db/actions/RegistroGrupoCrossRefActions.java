@@ -9,6 +9,8 @@ import androidx.room.Room;
 import com.example.db.database.DataBase;
 import com.example.model.RegistroGrupoCrossRef;
 
+import java.util.List;
+
 public class RegistroGrupoCrossRefActions {
     private String DB_NAME = "ControlGastos";
     private DataBase db;
@@ -55,6 +57,11 @@ public class RegistroGrupoCrossRefActions {
             new deleteAsyncTask(db, rel.getValue()).execute();
         }
     }
+
+    public List<RegistroGrupoCrossRef> getRelacionByGrupo(int grupoId){
+        return db.registroGrupoCrossRefDao().getRelacion(grupoId);
+    }
+
 
     private class deleteAsyncTask extends AsyncTask<Void, Void, Void>{
         private DataBase db;

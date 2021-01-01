@@ -2,8 +2,10 @@ package com.example.controlgastos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,6 +37,18 @@ public class GruposActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Grupo select = (Grupo) list.getSelectedItem();
+                Intent intent = new Intent(view.getContext(), GrupoDetailsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("grupoId", select.getGrupoId());
+                intent.putExtra("bunlde", bundle);
+                startActivity(intent);
+            }
+        });
 
 
     }
