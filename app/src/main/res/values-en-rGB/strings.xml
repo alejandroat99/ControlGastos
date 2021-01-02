@@ -7,4 +7,6 @@
     <string name="texto_perfil">Perfil</string>
     <string name="texto_new_grupo">New Group</string>
     <string name="texto_save">Save</string>
+    <string name="cost">Cost</string>
+    <string name="benefit">Benefit</string>
 </resources>

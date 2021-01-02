@@ -14,11 +14,16 @@ import com.example.db.actions.RegistroGrupoCrossRefActions;
 import com.example.model.Grupo;
 import com.example.model.Registro;
 import com.example.model.RegistroGrupoCrossRef;
+import com.example.util.AppColors;
 import com.example.util.Utils;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
 import java.util.ArrayList;
@@ -55,6 +60,31 @@ public class GrupoDetailsActivity extends AppCompatActivity {
         text_label.setText(grupo.getLabel());
 
         load_barchart_resume();
+        load_piechart_resume();
+    }
+
+    /**
+     * Se cargara un pie chart con los porcentajes totales de los registros
+     * divididos por tipos
+     */
+    private void load_piechart_resume() {
+        PieChart chart = (PieChart) findViewById(R.id.piechart_resume);
+        Map<Boolean, List<Registro>> filter_type = Utils.divideByType(this.registros);
+        float total = this.registros.size();
+        int gastos = filter_type.get(true).size();
+        int beneficios = filter_type.get(false).size();
+
+        List<PieEntry> entries = new ArrayList<>();
+        entries.add(new PieEntry(gastos/total, R.string.cost));
+        entries.add(new PieEntry(beneficios/total, R.string.benefit));
+
+        PieDataSet dataSet = new PieDataSet(entries, "");
+        dataSet.setColors(AppColors.gasto, AppColors.beneficio);
+        dataSet.setSliceSpace(2);
+        PieData data = new PieData(dataSet);
+        chart.setData(data);
+        chart.setUsePercentValues(true);
+        chart.invalidate();
     }
 
     /**
