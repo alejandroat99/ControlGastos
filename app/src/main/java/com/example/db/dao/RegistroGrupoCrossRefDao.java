@@ -26,4 +26,7 @@ public interface RegistroGrupoCrossRefDao {
     @Query("SELECT * FROM RegistroGrupoCrossRef WHERE grupoId=:grupoId")
     List<RegistroGrupoCrossRef> getRelacion(int grupoId);
 
+    @Query("SELECT * FROM RegistroGrupoCrossRef WHERE registroId=:registroId")
+    List<RegistroGrupoCrossRef> getRelacionByRegistro(int registroId);
+
 }

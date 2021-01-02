@@ -79,4 +79,8 @@ public class RegistroGrupoCrossRefActions {
         }
     }
 
+    public List<RegistroGrupoCrossRef> getRelacionByRegistro(int registroId){
+        return db.registroGrupoCrossRefDao().getRelacionByRegistro(registroId);
+    }
+
 }
